@@ -7,13 +7,25 @@ class LeaguesController < ApplicationController
     upcoming_games = Game.all.sort do |a, b|
       b.start_date <=> a.start_date
     end
-    upcoming_games.map do |game|
+    @upcoming_games = []
+    upcoming_games.each do |game|
       if game.start_date > DateTime.now
-        game
+        @upcoming_games << game
       end
-      @upcoming_games = upcoming_games
     end
+    @upcoming_games = @upcoming_games[0..4]
 
+
+    recent_games = Game.all.sort do |a, b|
+      b.start_date <=> a.start_date
+    end
+    @recent_games = []
+    recent_games.each do |game|
+      if game.start_date < DateTime.now
+        @recent_games << game
+      end
+    end
+    @recent_games = @recent_games[0..4]
   end
 
 

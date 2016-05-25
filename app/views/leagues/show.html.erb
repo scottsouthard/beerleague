@@ -16,6 +16,15 @@
   <% end %>
 </table>
 
+<ul class= "recent">
+  <h3> Recent Games: </h3>
+  <% @recent_games.each do |game| %>
+    <li> <%= link_to "#{game.start_date}", game %> <%= Team.find(game.participants[0].team_id).name %> <%=Result.find(game.id).winner_score %> - <%= Team.find(game.participants[1].team_id).name %> <%=Result.find(game.id).loser_score %></li>
+  <% end %>
+</ul>
+
+
+
 <ul class= "upcoming">
   <h3> Upcoming Games: </h3>
   <% @upcoming_games.each do |game| %>
