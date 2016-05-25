@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   resources :teams
   resources :games
   resources :results
+  resources :users, only: [:show]
   root to: 'leagues#show'
+
+  get 'sessions/new' => "sessions#new"
+  post 'sessions/create' => "sessions#create"
+  get 'sessions/logout' => "sessions#logout"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
