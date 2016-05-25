@@ -1,0 +1,63 @@
+html {
+    width: 1200px;
+    margin: auto;
+    background-color: #3E3E3D ;
+}
+
+body {
+    background-color: whitesmoke;
+    padding: 1%;
+    width: 800px;
+    margin: auto;
+}
+
+span {
+    color: #4BB3D2;
+}
+
+.header {
+    border: 1px solid #e4e4e4;
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding: 1%;
+}
+
+.info {
+    width: 60%;
+    margin: auto;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #3E3E3D;
+    border: 1px solid #EBA538;
+    display: block;
+    padding: 0.5%;
+    margin-top: 5%;
+}
+
+a:hover {
+    border: 1px solid #4BB3D2;
+}
+
+.edit_links { 
+    margin-top: 3%;
+    width: 20%;
+    text-align: center; 
+    float: left;
+}
+
+.details {
+    width: 75%;
+    margin: auto;
+    padding: 1%;
+    border: 1px solid #e4e4e4;
+    margin-top: 5%;
+}
+
+.locate_date {
+    width: 80%;
+    float: left;
+}

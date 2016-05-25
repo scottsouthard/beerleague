@@ -1,11 +1,17 @@
-<h1>Season and League goes here!</h1>
-<p>Location: <%= @game.location %></p>
-<p>Date: <%= @game.start_date %></p>
+<h1 class="header">Season and League goes here!</h1>
+<div class="info">
+  <div class="locate_date">
+    <p class="location">Location: <span><%= @game.location %></span></p>
+    <p class="date">Date: <span><%= @game.start_date %></span></p>
+  </div>
+  <div class="edit_links">
+    <%= link_to "Edit Game", edit_game_path %>
+    <%= link_to "Edit Results", edit_result_path %>
+  </div>
+</div>
 
-<%= link_to "Edit Game", edit_game_path %>
-<%= link_to "Edit Results", edit_result_path %>
-
-<% if @game.result.winner %>
+<div class="details">
+  <% if @game.result.winner %>
   <div>
     <p><%= @game.result.winner.name %></p>
     <p><%= @game.result.winner_score %></p>
@@ -18,3 +24,4 @@
 <% else %>
   <p>Game Coming Soon!</p>
 <% end %>
+</div>
