@@ -10,14 +10,16 @@
   </tr>
   <% @team_games.each do |game| %>
     <tr>
-      <td><%= game.start_date %></td>
+      <td><%= link_to "#{game.start_date}", game %></td>
       <td><%= game.location %></td>
-      <% if game.result.winner_id == @team.id %>
-        <td><%= game.result.winner_score %></td>
-        <td><%= game.result.loser_score %></td>
-      <% else %>
-        <td><%= game.result.loser_score %></td>
-        <td><%= game.result.winner_score %></td>
+      <% unless game.result == nil %>
+        <% if game.result.winner_id == @team.id %>
+          <td><%= game.result.winner_score %></td>
+          <td><%= game.result.loser_score %></td>
+        <% else %>
+          <td><%= game.result.loser_score %></td>
+          <td><%= game.result.winner_score %></td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>
