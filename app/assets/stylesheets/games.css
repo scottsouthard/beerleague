@@ -15,6 +15,24 @@ span {
     color: #4BB3D2;
 }
 
+a {
+    text-decoration: none;
+    color: #EBA538;
+}
+
+a:hover {
+    color: #4BB3D2;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 1%;
+}
+
 .header {
     border: 1px solid #e4e4e4;
     width: 60%;
@@ -29,7 +47,7 @@ span {
     overflow: hidden;
 }
 
-a {
+.edit {
     text-decoration: none;
     color: #3E3E3D;
     border: 1px solid #EBA538;
@@ -38,7 +56,7 @@ a {
     margin-top: 5%;
 }
 
-a:hover {
+.edit:hover {
     border: 1px solid #4BB3D2;
 }
 
@@ -50,7 +68,7 @@ a:hover {
 }
 
 .details {
-    width: 75%;
+    width: 80%;
     margin: auto;
     padding: 1%;
     border: 1px solid #e4e4e4;
@@ -60,4 +78,34 @@ a:hover {
 .locate_date {
     width: 80%;
     float: left;
+}
+
+.teams {
+    overflow: hidden;
+    text-align: center;
+    margin-left: 15%;
+}
+
+.team_box {
+    background-color: #e4e4e4;
+    width: 30%;
+    float: left;
+    padding: 7% 2%;
+    margin: 2%;
+    border-radius: 100%;
+}
+
+.team-name {
+    text-decoration: none;
+    color: #3E3E3D;
+}
+
+.team-name:hover {
+    color: #4BB3D2;
+}
+
+.team-score {
+    margin: 0;
+    font-size: 3em;
+    color: #EBA538;
 }
