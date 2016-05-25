@@ -1,0 +1,25 @@
+<h1> BEER LEAGUE </h1>
+
+<h3>Standings</h3>
+<table class="standings">
+    <tr>
+      <th> Team </th>
+      <th> Wins </th>
+      <th> Losses </th>
+    </tr>
+  <% @teams.each do |team| %>
+    <tr>
+      <td> <%= link_to "#{team.name}", team %> </td>
+      <td> <%= team.wins.count %> </td>
+      <td> <%= team.losses.count %> </td>
+    </tr>
+  <% end %>
+</table>
+
+
+<ul class= "upcoming">
+  <% @upcoming_games.each do |game| %>
+    <li> <%= game %> </li>
+  <% end %>
+</ul>
+
