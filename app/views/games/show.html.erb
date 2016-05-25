@@ -1,0 +1,20 @@
+<h1>Season and League goes here!</h1>
+<p>Location: <%= @game.location %></p>
+<p>Date: <%= @game.start_date %></p>
+
+<%= link_to "Edit Game", edit_game_path %>
+<%= link_to "Edit Results", edit_result_path %>
+
+<% if @game.result.winner %>
+  <div>
+    <p><%= @game.result.winner.name %></p>
+    <p><%= @game.result.winner_score %></p>
+  </div>
+  <div>
+    <p><%= @game.result.loser.name %></p>
+    <p><%= @game.result.loser_score %></p>
+  </div>
+  <p><%= @game.result.description %></p>
+<% else %>
+  <p>Game Coming Soon!</p>
+<% end %>
