@@ -1,3 +1,33 @@
-show page
+<h2><%= @team.name %></h2>
+<p><%= @team.manager.full_name %></p>
 
-<%= @team.name %>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Team Score</th>
+    <th>Opponent Score</th>
+  </tr>
+  <% @team_games.each do |game| %>
+    <tr>
+      <td><%= game.start_date %></td>
+      <td><%= game.location %></td>
+      <% if game.result.winner_id == @team.id %>
+        <td><%= game.result.winner_score %></td>
+        <td><%= game.result.loser_score %></td>
+      <% else %>
+        <td><%= game.result.loser_score %></td>
+        <td><%= game.result.winner_score %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<h4>Team Members</h4>
+
+<ul>
+ <% @team_players.each do |player| %>
+    <li><%= player.name %></li>
+  <% end %>
+</ul>
+
