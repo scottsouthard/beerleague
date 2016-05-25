@@ -11,7 +11,7 @@
 </div>
 
 <div class="details">
-  <% unless @game.result.winner == nil %>
+  <% unless @game.result == nil %>
   <div class="teams">
     <% if @game.result.winner %>
     <div class="team_box">
