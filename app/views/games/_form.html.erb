@@ -1,0 +1,22 @@
+<%= form_for(@game) do |f| %>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_field :start_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<!--
+The 2 teams playing
+Participants?
+
+The Winning score and losing score
+Results
+which will update the winner_id and loser_id
+-->
