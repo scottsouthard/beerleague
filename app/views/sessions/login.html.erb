@@ -1,0 +1,9 @@
+<h2> Login: </h2>
+
+<%= form_tag(controller: "sessions", action: "create", method: "post") %>
+  <%= label_tag("Email:") %>
+  <%= text_field_tag "user[email]" %>
+  <%= label_tag("Password:") %>
+  <%= text_field_tag "user[password]" %>
+  <%= submit_tag("Login") %>
+
