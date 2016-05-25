@@ -16,6 +16,7 @@ require 'faker'
 }
 
 Season.create(name: "Spring 2016", league_id: 1)
+Season.create(name: "Fall 2016", league_id: 2)
 
 Participant.create(game_id: 1, team_id: 1)
 Participant.create(game_id: 1, team_id: 2)

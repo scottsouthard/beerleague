@@ -1,29 +1,4 @@
 <h2>Enter the new team here: </h2>
 
-<ul>
-  <% if @errors %>
-    <% @errors.each do |message| %>
-      <li><%= message %></li>
-  <% end %>
-  <% end %>
-</ul>
-
-
-<%= form_for @team do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :manager_id %>
-    <%= f.collection_select(:manager_id, User.all, :id, :full_name) %>
-  </p>
-  <p>
-    <%= f.label :season_id %>
-    <%= f.collection_select(:season_id, Season.all, :id, :name) %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
