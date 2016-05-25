@@ -1,0 +1,34 @@
+<h1> BEER LEAGUE </h1>
+
+<h3>Standings</h3>
+<table class="standings">
+    <tr>
+      <th> Team </th>
+      <th> Wins </th>
+      <th> Losses </th>
+    </tr>
+  <% @teams.each do |team| %>
+    <tr>
+      <td> <%= link_to "#{team.name}", team %> </td>
+      <td> <%= team.wins.count %> </td>
+      <td> <%= team.losses.count %> </td>
+    </tr>
+  <% end %>
+</table>
+
+<ul class= "recent">
+  <h3> Recent Games: </h3>
+  <% @recent_games.each do |game| %>
+    <li> <%= link_to "#{game.start_date}", game %> <%= Team.find(game.participants[0].team_id).name %> <%=Result.find(game.id).winner_score %> - <%= Team.find(game.participants[1].team_id).name %> <%=Result.find(game.id).loser_score %></li>
+  <% end %>
+</ul>
+
+
+
+<ul class= "upcoming">
+  <h3> Upcoming Games: </h3>
+  <% @upcoming_games.each do |game| %>
+    <li> <%= link_to "#{game.start_date}", game %> <%= Team.find(game.participants[0].team_id).name %> vs. <%= Team.find(game.participants[1].team_id).name %> </li>
+  <% end %>
+</ul>
+

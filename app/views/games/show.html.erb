@@ -5,23 +5,27 @@
     <p class="date">Date: <span><%= @game.start_date %></span></p>
   </div>
   <div class="edit_links">
-    <%= link_to "Edit Game", edit_game_path %>
-    <%= link_to "Edit Results", edit_result_path %>
+    <%= link_to "Edit Game", edit_game_path, class: "edit" %>
+    <%= link_to "Edit Results", edit_result_path, class: "edit" %>
   </div>
 </div>
 
 <div class="details">
-  <% if @game.result.winner %>
-  <div>
-    <p><%= @game.result.winner.name %></p>
-    <p><%= @game.result.winner_score %></p>
+  <% unless @game.result == nil %>
+  <div class="teams">
+    <% if @game.result.winner %>
+    <div class="team_box">
+      <p><%= link_to "#{@game.result.winner.name}", team_path, class: "team-name" %></p>
+      <p class="team-score"><%= @game.result.winner_score %></p>
+    </div>
+    <div class="team_box">
+      <p><%= link_to "#{@game.result.loser.name}", team_path, class: "team-name" %></p>
+      <p class="team-score"><%= @game.result.loser_score %></p>
+    </div>
+    <p><%= @game.result.description %></p>
+    <% else %>
+      <p>Game Coming Soon!</p>
+    <% end %>
+  <% end %>
   </div>
-  <div>
-    <p><%= @game.result.loser.name %></p>
-    <p><%= @game.result.loser_score %></p>
-  </div>
-  <p><%= @game.result.description %></p>
-<% else %>
-  <p>Game Coming Soon!</p>
-<% end %>
 </div>
