@@ -1,0 +1,8 @@
+<h2>Here are the teams in your league:</h2>
+
+<ul>
+  <% @teams.each do |team| %>
+    <li><%= team.name %></li>
+    <%= link_to 'Remove Team From League', team, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</ul>

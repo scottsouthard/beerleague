@@ -1,4 +1,8 @@
 class TeamsController < ApplicationController
+  def index
+    @teams = Team.all
+  end
+
   def new
     @team = Team.new
   end
@@ -10,8 +14,7 @@ class TeamsController < ApplicationController
       redirect_to @team
     else
       @errors = @team.errors.full_messages
-      render new_team_path
-
+      render :new
     end
   end
 
@@ -22,12 +25,24 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    @team = Team.find(params[:id])
   end
 
   def update
+    @team = Team.find(params[:id])
+    @team.update_attributes(team_params)
+    if @team.save
+      redirect_to @team
+    else
+      @errors = @team.errors.full_messages
+      render new_team_path
+    end
   end
 
   def destroy
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to teams_path
   end
 
   private
