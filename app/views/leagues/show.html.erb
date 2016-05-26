@@ -1,12 +1,15 @@
 <h1> BEER LEAGUE </h1>
 
 <h3>Standings</h3>
-<table class="standings">
+<table class="table table-hover">
+  <thead>
     <tr>
       <th> Team </th>
       <th> Wins </th>
       <th> Losses </th>
     </tr>
+  </thead>
+  <tbody>
   <% @teams.each do |team| %>
     <tr>
       <td> <%= link_to "#{team.name}", team %> </td>
@@ -14,6 +17,7 @@
       <td> <%= team.losses.count %> </td>
     </tr>
   <% end %>
+  </tbody>
 </table>
 
 <ul class= "recent">

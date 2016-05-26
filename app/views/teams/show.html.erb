@@ -1,13 +1,16 @@
 <h2><%= @team.name %></h2>
 <p><%= @team.manager.full_name %></p>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Team Score</th>
-    <th>Opponent Score</th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Team Score</th>
+      <th>Opponent Score</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @team_games.each do |game| %>
     <tr>
       <td><%= link_to "#{game.start_date}", game %></td>
@@ -22,14 +25,15 @@
         <% end %>
       <% end %>
     </tr>
+  </tbody>
   <% end %>
 </table>
 
 <h4>Team Members</h4>
 
-<ul>
+<ul class="list-group">
  <% @team_players.each do |player| %>
-    <li><%= player.name %></li>
+    <li class="list-group-item"><%= player.name %></li>
   <% end %>
 </ul>
 
