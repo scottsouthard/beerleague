@@ -1,5 +1,4 @@
 <h2><%= @team.name %></h2>
-<p><%= @team.manager.full_name %></p>
 <%= link_to "Back", [@league, @season] %>
 
 <table class="table table-hover">
@@ -31,7 +30,7 @@
 </table>
 
 <h4>Team Members</h4>
-
+<p>Manager: <%= @team.manager.full_name %></p>
 <ul class="list-group">
  <% @team_players.each do |player| %>
     <% if current_user.id == player.id %>
