@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :set_team, :set_season, :set_league
+  before_action :check_admin, except: [:show]
 
   def index
     @teams = Team.all

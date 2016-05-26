@@ -14,23 +14,35 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-inverse">
+
 	  <ul class="nav navbar-nav">
 
 	    <li class="nav-item active">
-	      <a class="nav-link" href="/leagues">Busch League <span class="sr-only">(current)</span></a>
+	      <a class="nav-link" href="/">Busch League <span class="sr-only">(current)</span></a>
 	    </li>
-
+	    <% if admin? %>
+		    <li class="nav-item">
+		      <a class="nav-link" href="/teams">Teams</a>
+		    </li>
+	    <% end %>
 	  </ul>
+
 	  <ul class="nav navbar-nav rightone">
-	    <li class="nav-item">
-	      <a class="nav-link" href="#">Register</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/sessions/new">Login</a>
-	    </li>
-	    <li class="nav-item">
-	      <a class="nav-link" href="/sessions/logout">Logout</a>
-	    </li>
+	  	<% if logged_in? %>
+		    <li class="nav-item">
+		      <p class="nav-link"> <%= current_user.email %> </a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="/sessions/logout">Logout</a>
+		    </li>
+	    <% else %>
+		    <li class="nav-item">
+		      <a class="nav-link" href="#">Register</a>
+		    </li>
+		    <li class="nav-item">
+		      <a class="nav-link" href="/sessions/new">Login</a>
+		    </li>
+	    <% end %>
 	  </ul>
 	</nav>
 	<div class="realbody">

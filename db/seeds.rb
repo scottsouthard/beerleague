@@ -1,10 +1,10 @@
 require 'faker'
 
 
-
+admin = User.create(full_name: 'Billy Bob', email: 'billy@bob.com', password: 'password', admin: true)
 
 4.times {
-  manager = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password')
+  manager = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password', admin: false)
   team = Team.create(name: Faker::Team.name, season_id: 1, manager_id: manager.id)
 
   10.times{
