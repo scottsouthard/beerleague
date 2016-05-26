@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :games
   resources :results
   resources :users, only: [:show]
+  resources :leagues
+  resources :seasons
   root to: 'leagues#show'
 
   get 'sessions/new' => "sessions#new"

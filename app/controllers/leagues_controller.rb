@@ -1,6 +1,8 @@
 class LeaguesController < ApplicationController
-
+  before_action :set_league
   def show
+    @seasons = Season.where(league_id: 1)
+
     @teams = Team.all.sort do |a, b|
       b.wins.count <=> a.wins.count
     end
@@ -15,7 +17,6 @@ class LeaguesController < ApplicationController
     end
     @upcoming_games = @upcoming_games[0..4]
 
-
     recent_games = Game.all.sort do |a, b|
       b.start_date <=> a.start_date
     end
@@ -28,6 +29,8 @@ class LeaguesController < ApplicationController
     @recent_games = @recent_games[0..4]
   end
 
-
-
+private
+  def set_league
+    @league = League.find(1)
+  end
 end
