@@ -13,6 +13,7 @@ html {
     background-color: whitesmoke;
     width: 80%;
     margin: auto;
+    padding: 2%;
 }
 
 span {
@@ -37,6 +38,15 @@ li {
     padding: 1%;
 }
 
+h1 {
+    border-bottom: 1px solid black;
+    padding-bottom: 2%;
+}
+
+h3 {
+    padding: 2% 0 2% 0;
+}
+
 h2 {
    border: 1px solid #e4e4e4;
    width: 60%;
@@ -45,21 +55,12 @@ h2 {
    padding: 1%; 
 }
 
-table {
-    background-color: yellow;
-    margin: auto;
-}
-
-tr,
-td,
-th {
-    padding: 1%;
-    width: 20%;
-    text-align: center;
-}
-
 th {
     border-bottom: 1px solid black;
+}
+
+.table {
+    background-color: white;
 }
 
 .header {
@@ -107,19 +108,20 @@ th {
 .locate_date {
     width: 80%;
     float: left;
+    margin-top: 4%;
 }
 
 .teams {
     overflow: hidden;
     text-align: center;
-    margin-left: 15%;
+    margin-left: 12%;
 }
 
 .team_box {
     background-color: #e4e4e4;
-    width: 30%;
+    width: 38%;
     float: left;
-    padding: 7% 2%;
+    padding: 10% 2%;
     margin: 2%;
     border-radius: 100%;
 }
