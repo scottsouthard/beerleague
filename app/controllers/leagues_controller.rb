@@ -1,6 +1,8 @@
 class LeaguesController < ApplicationController
 
   def show
+    @seasons = Season.where(league_id: 1)
+
     @teams = Team.all.sort do |a, b|
       b.wins.count <=> a.wins.count
     end
