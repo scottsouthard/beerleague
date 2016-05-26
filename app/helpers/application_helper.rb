@@ -23,7 +23,9 @@ module ApplicationHelper
   end
 
   def team_manager?(team)
-    team.manager_id == current_user.id
+    if logged_in?
+      team.manager_id == current_user.id
+    end
   end
 
 end

@@ -34,3 +34,6 @@ Result.create(game_id: 4, winner_id: 4, loser_id: 2, winner_score: rand(6..10), 
 Game.create(location: Faker::StarWars.planet, season_id: 1, start_date: Faker::Date.forward(14))
 Participant.create(game_id: 5, team_id: 1)
 Participant.create(game_id: 5, team_id: 4)
+Game.create(location: Faker::StarWars.planet, season_id: 1, start_date: Faker::Date.forward(14))
+Participant.create(game_id: 6, team_id: 2)
+Participant.create(game_id: 6, team_id: 3)
