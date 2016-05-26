@@ -1,16 +1,16 @@
 require 'faker'
 
-admin = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password')
+admin = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password', league_admin: true)
 League.create(name: "Busch League", league_type: "hockey", admin_id: admin.id)
 
 4.times {
-  manager = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password', admin: false)
+  manager = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password', league_admin: false)
   team = Team.create(name: Faker::Team.name, season_id: 1, manager_id: manager.id)
-  membership = Membership.create(team_id: team.id, user_id: manager.id, type: 'manager')
+  membership = Membership.create(team_id: team.id, user_id: manager.id, membership_type: 'manager')
 
   10.times{
-    user = User.create(full_name: Faker::StarWars.character, email: Faker::Internet.email, password: 'password')
-    membership = Membership.create(team_id: team.id, user_id: user.id, type: 'player')
+    user = User.create(full_name: Faker::StarWars.character, email: Faker::Internet.email, password: 'password', league_admin: false)
+    membership = Membership.create(team_id: team.id, user_id: user.id, membership_type: 'player')
   }
 
   game = Game.create(location: Faker::StarWars.planet, season_id: 1, start_date: Faker::Date.backward(14))
