@@ -3,6 +3,6 @@
 <ul>
   <% @teams.each do |team| %>
     <li><%= team.name %></li>
-    <%= link_to 'Remove Team From League', team, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Remove Team From League', team, method: :delete, data: { confirm: 'Are you sure?' } if admin? %>
   <% end %>
 </ul>

@@ -13,7 +13,7 @@
   <tbody>
   <% @team_games.each do |game| %>
     <tr>
-      <td><%= link_to "#{game.start_date}", game %></td>
+      <td><%= link_to "#{game.start_date}", [@league, @season, game] %></td>
       <td><%= game.location %></td>
       <% unless game.result == nil %>
         <% if game.result.winner_id == @team.id %>

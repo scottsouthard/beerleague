@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :edit, :update]
+  before_action :set_game, :set_league, :set_season, only: [:show, :edit, :update]
 
   def show
   end
@@ -9,7 +9,7 @@ class GamesController < ApplicationController
 
   def update
     if @game.update(game_params)
-      redirect_to @game
+      redirect_to league_season_game_path
     else
       render :edit
     end
@@ -19,6 +19,14 @@ class GamesController < ApplicationController
 
   def set_game
     @game = Game.find(params[:id])
+  end
+
+  def set_season
+    @season = Season.find(params[:season_id])
+  end
+
+  def set_league
+    @league = League.find(params[:league_id])
   end
 
   def game_params

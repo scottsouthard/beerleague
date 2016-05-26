@@ -1,5 +1,10 @@
 class LeaguesController < ApplicationController
   before_action :set_league
+
+  def index
+
+  end
+
   def show
     @seasons = Season.where(league_id: 1)
 

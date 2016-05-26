@@ -1,11 +1,10 @@
 require 'faker'
 
-
 admin = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password')
 League.create(name: "Busch League", league_type: "hockey", admin_id: admin.id)
 
 4.times {
-  manager = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password')
+  manager = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password', admin: false)
   team = Team.create(name: Faker::Team.name, season_id: 1, manager_id: manager.id)
   membership = Membership.create(team_id: team.id, user_id: manager.id, type: 'manager')
 
