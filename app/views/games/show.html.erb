@@ -3,15 +3,18 @@
   <div class="locate_date">
     <p class="location">Location: <span><%= @game.location %></span></p>
     <p class="date">Date: <span><%= @game.start_date %></span></p>
+    <%= link_to "Back", [@league, @season] %>
   </div>
   <div class="edit_links">
     <%= link_to "Edit Game", edit_league_season_game_path, class: "edit" %>
 
+  <% unless @game.start_date > DateTime.now %>
     <% if @game.result == nil %>
       <%= link_to "Add Results", setter_result_path, class: "edit" %>
     <% else %>
       <%= link_to "Edit Results", edit_result_path, class: "edit" %>
     <% end %>
+  <% end %>
   </div>
 </div>
 
