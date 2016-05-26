@@ -23,7 +23,11 @@
   <tbody>
   <% @teams.each do |team| %>
     <tr>
+      <% if team.users.include?(current_user) %>
+      <td> <%= link_to "#{team.name}", [@league, @season, team], class: "highlight" %> </td>
+      <% else %>
       <td> <%= link_to "#{team.name}", [@league, @season, team] %> </td>
+      <% end %>
       <td> <%= team.wins.count %> </td>
       <td> <%= team.losses.count %> </td>
     </tr>
