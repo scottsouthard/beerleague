@@ -172,3 +172,8 @@ body {
 .highlight {
     color: red;
 }
+
+.busch-car {
+    width: 50%;
+    float:right;
+}
