@@ -16,7 +16,7 @@ module ApplicationHelper
     # Is somebody logged in
     if logged_in?
       #
-      current_user.admin
+      current_user.league_admin
     end
   end
 

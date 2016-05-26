@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
   def show
 
     @team_games = @team.games
-    @team_players = @team.players
+    @team_players = @team.users
   end
 
   def edit

@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 20160526182106) do
   create_table "memberships", force: :cascade do |t|
     t.integer  "team_id"
     t.integer  "user_id"
-    t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "membership_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "participants", force: :cascade do |t|
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160526182106) do
     t.string   "full_name",       null: false
     t.string   "email",           null: false
     t.string   "password_digest", null: false
-    t.boolean  "admin",           null: false
+    t.boolean  "league_admin",    null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
