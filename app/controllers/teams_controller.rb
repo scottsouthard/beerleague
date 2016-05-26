@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_action :set_team, :set_season, :set_league
+
   def index
     @teams = Team.all
   end
@@ -19,17 +21,17 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+
     @team_games = @team.games
     @team_players = @team.players
   end
 
   def edit
-    @team = Team.find(params[:id])
+
   end
 
   def update
-    @team = Team.find(params[:id])
+
     @team.update_attributes(team_params)
     if @team.save
       redirect_to @team
@@ -40,7 +42,6 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    @team = Team.find(params[:id])
     @team.destroy
     redirect_to teams_path
   end
@@ -49,5 +50,17 @@ class TeamsController < ApplicationController
 
   def team_params
     params.require(:team).permit(:name, :manager_id, :season_id)
+  end
+
+  def set_team
+    @team = Team.find(params[:id])
+  end
+
+  def set_season
+    @season = Season.find(params[:season_id])
+  end
+
+  def set_league
+    @league = League.find(params[:league_id])
   end
 end

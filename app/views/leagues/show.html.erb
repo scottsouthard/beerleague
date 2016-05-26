@@ -1,49 +1,5 @@
 <h1> BEER LEAGUE </h1>
-
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Seasons
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <% @seasons.each do |season| %>
-    <a class="dropdown-item" href="/seasons/<%= season.id %>"><%= season.name %></a>
-    <% end %>
-  </div>
-</div>
-
-<h3>Standings</h3>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th> Team </th>
-      <th> Wins </th>
-      <th> Losses </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @teams.each do |team| %>
-    <tr>
-      <td> <%= link_to "#{team.name}", team %> </td>
-      <td> <%= team.wins.count %> </td>
-      <td> <%= team.losses.count %> </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<ul class= "recent">
-  <h3> Recent Games: </h3>
-  <% @recent_games.each do |game| %>
-    <li> <%= link_to "#{game.start_date}", game %> <%= Team.find(game.participants[0].team_id).name %> <%=Result.find(game.id).winner_score %> - <%= Team.find(game.participants[1].team_id).name %> <%=Result.find(game.id).loser_score %></li>
-  <% end %>
-</ul>
-
-
-
-<ul class= "upcoming">
-  <h3> Upcoming Games: </h3>
-  <% @upcoming_games.each do |game| %>
-    <li> <%= link_to "#{game.start_date}", game %> <%= Team.find(game.participants[0].team_id).name %> vs. <%= Team.find(game.participants[1].team_id).name %> </li>
-  <% end %>
-</ul>
+<% @league.seasons.each do |season| %>
+  <p><%= link_to "#{season.name}", [@league, season] %></p>
+<% end %>
 

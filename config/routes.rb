@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :teams
-  resources :games
   resources :results
   resources :users, only: [:show]
-  resources :leagues
-  resources :seasons
+  resources :leagues do
+    resources :seasons do
+      resources :teams
+      resources :games
+    end
+  end
   root to: 'leagues#show'
 
   get 'sessions/new' => "sessions#new"

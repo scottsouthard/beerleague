@@ -9,8 +9,11 @@ class ResultsController < ApplicationController
   end
 
   def update
+    @game = Game.find(params[:id])
+    @season = Season.find(@game.season_id)
+    @league = League.find(@season.league_id)
     if @result.update(result_params)
-      redirect_to game_path(params[:id])
+      redirect_to [@league, @season, @game]
     else
       render :edit
     end
@@ -21,6 +24,7 @@ class ResultsController < ApplicationController
   def set_result
     @result = Result.find(params[:id])
   end
+
 
   def result_params
     params.require(:result).permit(:winner_score, :loser_score, :description, :winner_id, :loser_id)
