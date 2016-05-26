@@ -4,8 +4,11 @@ RSpec.describe TeamsController, type: :controller do
   let!(:team) { Team.create!(name: "Bill's cats", manager_id: 2, season_id: 1) }
 
   describe "GET #new" do
+    let(:league) {League.create!(name: "Busch League")}
+    let(:season) {Season.create!(league_id: 1)}
     it "assigns a newly created team as @team" do
-      get(:new, team: {name: 'THE LLAMAS', manager_id: 2, season_id: 1})
+
+      get(:new, team: {name: 'THE LLAMAS', manager_id: 2, season_id: season.id})
       expect(assigns(:team)).to be_a_new(Team)
     end
   end
