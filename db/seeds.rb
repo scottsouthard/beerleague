@@ -1,6 +1,6 @@
 require 'faker'
 
-admin = User.create(full_name: Faker::Book.author, email: Faker::Internet.email, password: 'password', league_admin: true)
+admin = User.create(full_name: Faker::Book.author, email: 'admin', password: 'password', league_admin: true)
 League.create(name: "Busch League", league_type: "hockey", admin_id: admin.id)
 
 4.times {
@@ -37,3 +37,15 @@ Participant.create(game_id: 5, team_id: 4)
 Game.create(location: Faker::StarWars.planet, season_id: 1, start_date: Faker::Date.forward(14))
 Participant.create(game_id: 6, team_id: 2)
 Participant.create(game_id: 6, team_id: 3)
+
+
+# User managing and playing
+  superman = User.create(full_name: Faker::Book.author, email: 'superman', password: 'password', league_admin: false)
+  team = Team.create(name: Faker::Team.name, season_id: 1, manager_id: superman.id)
+  membership = Membership.create(team_id: team.id, user_id: superman.id, membership_type: 'manager')
+  membership = Membership.create(team_id: team.id, user_id: superman.id, membership_type: 'player')
+
+  9.times{
+    user = User.create(full_name: Faker::StarWars.character, email: Faker::Internet.email, password: 'password', league_admin: false)
+    membership = Membership.create(team_id: team.id, user_id: user.id, membership_type: 'player')
+  }

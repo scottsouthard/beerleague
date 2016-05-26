@@ -1,7 +1,19 @@
 <h2> Welcome to your doom, <%= @user.full_name %></h2><br>
 
-<% @user_teams.each do |team| %>
-  <%= link_to "#{team.name}", [team.season.league, team.season, team] %>
-<% end %>
+<h5> Here are the teams you play on:</h5>
+<ul>
+  <% @user_memberships.each do |membership| %>
+    <% if membership.membership_type == 'player' %>
+      <li><%= link_to "#{membership.team.name}", [membership.team.season.league, membership.team.season, membership.team] %></li>
+    <% end %>
+  <% end %>
+</ul>
 
-
+<h5> Here are the teams you manage:</h5>
+<ul>
+  <% @user_memberships.each do |membership| %>
+    <% if membership.membership_type == 'manager' %>
+      <li><%= link_to "#{membership.team.name}", [membership.team.season.league, membership.team.season, membership.team] %></li>
+    <% end %>
+  <% end %>
+</ul>
