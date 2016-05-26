@@ -5,8 +5,10 @@
     <p class="date">Date: <span><%= @game.start_date %></span></p>
   </div>
   <div class="edit_links">
+    <% if admin? || team_manager?(@game.participants[0].team) || team_manager?(@game.participants[1].team) %>
     <%= link_to "Edit Game", edit_league_season_game_path, class: "edit" %>
     <%= link_to "Edit Results", edit_result_path, class: "edit" %>
+    <% end %>
   </div>
 </div>
 

@@ -13,9 +13,7 @@ module ApplicationHelper
   end
 
   def admin?
-    # Is somebody logged in
     if logged_in?
-      #
       current_user.league_admin
     end
   end
@@ -24,8 +22,8 @@ module ApplicationHelper
     redirect_to root_path unless admin?
   end
 
-  def team_manager?(game)
-    game.manager_id == current_user
+  def team_manager?(team)
+    team.manager_id == current_user.id
   end
 
 end
