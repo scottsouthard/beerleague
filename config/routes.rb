@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :results
+  resources :results do
+    member do
+      get :setter
+    end
+  end
   resources :users, only: [:show]
   resources :leagues do
     resources :seasons do
