@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_action :check_admin, except: [:show]
+
   def index
     @teams = Team.all
   end
