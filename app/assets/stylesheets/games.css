@@ -14,6 +14,8 @@ html {
     width: 80%;
     margin: auto;
     padding: 2%;
+    border: 3px solid darkblue;
+    margin-top: 1%;
 }
 
 span {
@@ -52,7 +54,7 @@ h2 {
    width: 60%;
    margin: auto;
    text-align: center;
-   padding: 1%; 
+   padding: 1%;
 }
 
 th {
@@ -90,10 +92,10 @@ th {
     border: 1px solid #4BB3D2;
 }
 
-.edit_links { 
+.edit_links {
     margin-top: 3%;
     width: 20%;
-    text-align: center; 
+    text-align: center;
     float: left;
 }
 
@@ -148,4 +150,24 @@ th {
     overflow: hidden;
     font-size: 0.75em;
     width: 20%;
+}
+
+.busch-logo {
+    width: 13%;
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 1%;
+    background-color: whitesmoke;
+    padding: 1%;
+    border-radius: 10%;
+    border: 3px solid darkblue;
+}
+
+body {
+    padding-bottom: 2%;
+    border-radius: 1%;
+}
+
+.highlight {
+    color: red;
 }
