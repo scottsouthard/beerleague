@@ -2,7 +2,7 @@
 <div class="info">
   <div class="locate_date">
     <p class="location">Location: <span><%= @game.location %></span></p>
-    <p class="date">Date: <span><%= @game.start_date %></span></p>
+    <p class="date">Date: <span><%= @game.start_date.strftime('%A, %B %d, %Y') %></span></p>
     <%= link_to "Back", [@league, @season] %>
   </div>
   <div class="edit_links">

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
       get :setter
     end
   end
-  resources :users, only: [:show]
+  resources :memberships, only: [:new, :edit, :create]
+  resources :users, only: [:show, :new, :create]
   resources :leagues do
     resources :seasons do
       resources :teams

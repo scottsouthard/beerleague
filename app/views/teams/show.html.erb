@@ -1,5 +1,13 @@
 <h2><%= @team.name %></h2>
-<%= link_to "Back", [@league, @season] %>
+<%= link_to "Back", [@league, @season] %><br>
+
+<% if team_manager?(@team) %>
+  <% @team.games.each do |game| %>
+    <% if game.start_date < DateTime.now && game.result == nil %>
+    <p> Your game on <%= link_to "#{game.start_date.strftime('%A, %B %d, %Y')}", [@league, @season, game] %> needs updated results! </p>
+    <% end %>
+  <% end %>
+<% end %>
 
 <table class="table table-hover">
   <thead>
@@ -13,7 +21,7 @@
   <tbody>
   <% @team_games.each do |game| %>
     <tr>
-      <td><%= link_to "#{game.start_date}", [@league, @season, game] %></td>
+      <td><%= link_to "#{game.start_date.strftime('%A, %B %d, %Y')}", [@league, @season, game] %></td>
       <td><%= game.location %></td>
       <% unless game.result == nil %>
         <% if game.result.winner_id == @team.id %>
@@ -31,6 +39,9 @@
 
 <h4>Team Members</h4>
 <p>Manager: <%= @team.manager.full_name %></p>
+<% if team_manager?(@team) %>
+  <%= link_to "Edit Team", edit_league_season_team_path(@league, @season, @team) %>
+<% end %>
 <ul class="list-group">
  <% @team_players.each do |player| %>
     <% if current_user && current_user.id == player.id %>
@@ -39,5 +50,16 @@
     <li class="list-group-item"><%= player.full_name %></li>
     <% end %>
   <% end %>
+  <% if team_manager?(@team) %>
+<% end %>
 </ul>
+<%= form_for(@membership) do |f| %>
+  <p>
+    <%= f.collection_select(:user_id, User.all, :id, :full_name, {include_blank: true}) %>
+    <%= f.hidden_field(:team_id, value: @team.id) %>
+  </p>
+  <p>
+    <%= f.submit "Add Player" %>
+  </p>
+<% end %>
 
