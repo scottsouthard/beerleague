@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20160526182106) do
     t.string   "full_name",       null: false
     t.string   "email",           null: false
     t.string   "password_digest", null: false
-    t.boolean  "league_admin",    null: false
+    t.boolean  "league_admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

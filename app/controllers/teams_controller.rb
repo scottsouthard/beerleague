@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
-  before_action :set_team, except: [:new]
+  before_action :set_team, except: [:new, :create]
   before_action :set_season, :set_league
-  before_action :check_admin, except: [:show]
+  before_action :check_admin, except: [:show, :edit, :update]
 
   def index
     @teams = Team.all
@@ -15,7 +15,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
-      redirect_to @team
+      redirect_to [@league, @season, @team]
     else
       @errors = @team.errors.full_messages
       render :new
@@ -26,14 +26,14 @@ class TeamsController < ApplicationController
 
     @team_games = @team.games
     @team_players = @team.users
+    @membership = Membership.new
   end
 
   def edit
-
+    @team_games = @team.games
   end
 
   def update
-
     @team.update_attributes(team_params)
     if @team.save
       redirect_to @team

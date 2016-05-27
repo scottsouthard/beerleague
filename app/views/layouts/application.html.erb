@@ -25,14 +25,16 @@
 	  <ul class="nav navbar-nav rightone">
 	  	<% if logged_in? %>
 		    <li class="nav-item">
-		      <p class="nav-link"> <%= current_user.email %> </a>
+		    	<% unless admin? %>
+		      	<p class="nav-link"> <%= link_to "#{current_user.email}", user_path(current_user) %> </p>
+		      <% end %>
 		    </li>
 		    <li class="nav-item">
 		      <a class="nav-link" href="/sessions/logout">Logout</a>
 		    </li>
 	    <% else %>
 		    <li class="nav-item">
-		      <a class="nav-link" href="#">Register</a>
+		      <a class="nav-link" href="/users/new">Register</a>
 		    </li>
 		    <li class="nav-item">
 		      <a class="nav-link" href="/sessions/new">Login</a>
