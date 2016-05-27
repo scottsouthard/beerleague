@@ -33,7 +33,7 @@
 <p>Manager: <%= @team.manager.full_name %></p>
 <ul class="list-group">
  <% @team_players.each do |player| %>
-    <% if current_user.id == player.id %>
+    <% if current_user && current_user.id == player.id %>
     <li class="list-group-item highlight"><%= player.full_name %></li>
     <% else %>
     <li class="list-group-item"><%= player.full_name %></li>

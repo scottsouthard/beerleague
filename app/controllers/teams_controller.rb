@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
 
   def show
 
-    @team_games = @team.games
+    @team_games = @team.games.order(:start_date)
     @team_players = @team.users
   end
 

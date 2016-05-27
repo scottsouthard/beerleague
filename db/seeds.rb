@@ -74,7 +74,7 @@ Season.create(name: "Fall 2016", league_id: 2)
 
 def generate_schedule
   array1 = [1,2,3,4,5,6,7,8]
-  array2 = [1,2,3,4,5,6,7,8]
+  array2 = [8,7,6,5,4,3,2,1]
 
   array1.each do |number1|
     array2.each do |number2|
