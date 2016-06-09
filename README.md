@@ -1,3 +1,9 @@
 # Beer League
-A basic CRUD app for tracking intramural sports league statistics. 
-Supports multiple users as players, managers, or league admins.
+A basic Ruby on Rails CRUD app for tracking intramural sports league statistics. 
+
+## Functionality
+
+Beer League is an exercise in RESTful routing and Ruby on Rails. 
+It allows users to sign in as players, managers, or league admins, giving them the ability to schedule games, record statistics, and manage rosters. Simple, efficient, and effective.
+
+
